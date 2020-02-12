@@ -1,0 +1,101 @@
+﻿
+@{
+    ViewBag.Title = "Ürünler";
+}
+@using Hunerli.Models
+@model List<Products>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="block">
+            <div class="block-heading">
+                <div class="main-text h2">
+                    Ürünler             <a href="/Products/ProductsAdd" class="btn btn-success rounded">Ekle</a>
+                </div>
+
+
+            </div>
+            <div class="block-content-outer">
+                <div class="block-content-inner">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Tedarikçi</th>
+                                <th>Ürün Adı</th>
+                                <th>Stok</th>
+                                
+                                <th>Fiyatı</th>
+                                <th>Sepete Ekle</th>
+                                <th>Detay</th>
+                                <th>Sil</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Products u in Model)
+                            {
+                            <tr>
+                                <td>@u.SellerID</td>
+                                <td>@u.ProductName</td>
+                                <td>@u.ProductStocks</td>
+                
+                                <td>@u.ProductCast</td>
+                                <td><a href="#" class="btn btn-default  rounded BasketThrow" data-ajax="@u.ProductID">Sepete Ekle</a></td>
+
+                                <td><a href="/Products/ProductsDetail?id=@u.ProductID&name=@u.ProductName" class="btn btn-primary  rounded">Detay</a></td>
+
+                                <td><a href="#" class="btn btn-danger  rounded productDlt" data-ajax="@u.ProductID">Sil</a></td>
+
+                            </tr>
+                            }
+                 
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+
+
+    <script>
+        $(".productDlt").click(function () {
+            var sonuc = confirm("Kayıt Silinsin Mi?");
+            if (sonuc) {
+                var productid = $(this).data("ajax");
+                alert(productid);
+                $.ajax({
+                   type:"POST",
+                    url: "/Products/ProductsDelete/"+productid,
+                    success: function () {
+                        alert("Kayıt Silindi");
+                        window.location.replace("/Products/Index");
+                    },
+                    error: function () {
+                        alert("Kayıt Silmede Hata");
+                    }
+
+                });
+            }
+            else {
+                alert("islem yok")
+            }
+        });
+                $(".BasketThrow").click(function () {
+                    var id = $(this).data("ajax");
+                           alert(id);
+            $.ajax({
+                type: "POST",
+                url: "/Products/BasketThrow/" + id,
+                success: function () {
+                    alert("ürün sepete atıldı");
+                },
+                error: function(){
+                    alert("ürün sepete atılamadı");
+                }
+            })
+        });
+    </script>
+
+}

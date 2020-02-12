@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "Ürün Ekle";
+}
+@using Hunerli.Models
+
+<div class="row">
+    <div class="col-md-12">
+
+
+        <div class="block">
+            <div class="block-heading">
+                <div class="main-text h2">
+                    Ürün Ekle
+                </div>
+
+            </div>
+            <div class="block-content-outer">
+                <div class="block-content-inner">
+                    <form action="/Products/AddProducts" method="post" role="form">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Ürün Adı:</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Ürün Adı Gir" name="ProductName">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Stok:</label>
+                            <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Stok Gir" name="ProductStocks">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Tedarikçi:</label>
+                            <select class="form-control" name="SallerID">
+                                @foreach (Seller sel in ViewBag.Seller)
+                                {
+                                    <option value="@sel.SellerID">@sel.SellerName</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Fiyatı:</label>
+                            <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Fiyat Gir"name="ProductCast">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+</div>
+

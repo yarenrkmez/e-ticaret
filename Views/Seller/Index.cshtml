@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Tedarikçiler";
+}
+
+@using Hunerli.Models
+@model List<Seller>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="block">
+            <div class="block-heading">
+                <div class="main-text h2">
+                    Tedarikçiler
+                </div>
+                <a href="/Seller/AddSeller" class="btn btn-success">Yeni Tedarikçi</a>
+            </div>
+
+
+            <div class="block-content-outer">
+                <div class="block-content-inner">
+                <table class="table table-striped table-hover" >
+                    <thead>
+                        <tr>
+                            <th>Tedarikçi Adı:</th>
+                            <th>Tedarikçi Adresi:</th>
+                            <th>Güncelle</th>
+                            <th>Sil</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Seller item in Model)
+                        {
+                        <tr>
+                            <td>@item.SellerName</td>
+                            <td>@item.SellerAdress</td>
+                            <td><a href="/Seller/UpdateSaller/@item.SellerID" class="btn btn-primary">Güncelle</a></td>
+                            <td><a href="/Seller/DeleteSaller/@item.SellerID" class="btn btn-danger">Sil</a></td>
+
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

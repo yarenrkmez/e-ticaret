@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Tedarikçi Ekle";
+}
+
+    <div class="row">
+        <div class="col-md-12">
+
+
+            <div class="block">
+                <div class="block-heading">
+                    <div class="main-text h2">
+                        Tedarikçi  Ekle
+                    </div>
+
+                </div>
+                <div class="block-content-outer">
+                    <div class="block-content-inner">
+                        <form action="/Seller/AddSeller" method="post" role="form">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Tedarikçi Adı:</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Tedarikçi Adı Gir" name="SellerName">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Tedarikçi Kullanıcı Adı:</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Kullanıcı Adı Gir" name="SellerUserName">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Tedarikçi  Adres:</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Adresi Gir" name="SellerAdress">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email:</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Email  Gir" name="SellerEmail">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Şifre:</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Şifre" name="SellerPsw">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>

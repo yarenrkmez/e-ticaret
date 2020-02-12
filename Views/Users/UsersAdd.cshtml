@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "Yeni Üye";
+}
+@section head{
+    <style>
+        #err{
+            color:red;
+            font-size:16px;
+        }
+    </style>
+    }
+
+<div class="row">
+    <div class="col-md-12">
+
+
+        <div class="block">
+            <div class="block-heading">
+                <div class="main-text h2">
+                    Üye  Ekle
+                </div>
+
+            </div>
+            <div class="block-content-outer">
+                <div class="block-content-inner">
+                    <form action="/Users/UsersAdd" method="post" role="form">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Kullanıcı Adı:</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Kullanıcı Adı Gir" name="UsersName">
+                        </div>
+                        @*<div class="form-group">
+                            <label for="exampleInputEmail1">Kullanıcı Nick:</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nick" name="UsersNickName">
+                        </div>*@
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Şifre:</label>
+                            <input type="password" class="form-control" id="exampleInputEmail1" placeholder="Parola" name="UsersPsw">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email:</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Email  Gir" name="UsersEmail">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Gizli Soru:</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Gizli Soru  Gir" name="PrivateQuestion">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Gizli Cevap:</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Gizli Cevap  Gir" name="PrivateAnswer">
+                        </div>
+
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                    <span class="err">@ViewBag.Mesaj</span>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+</div>

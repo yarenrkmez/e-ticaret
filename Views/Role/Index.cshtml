@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Roller";
+}
+@model List<string>
+<div class="row">
+    <div class="col-md-12">
+        <div class="block">
+            <div class="block-heading">
+                <div class="main-text h2">
+                    Roller             <a href="/Role/RoleAdd" class="btn btn-success rounded">Ekle</a>
+                </div>
+
+
+            </div>
+            <div class="block-content-outer">
+                <div class="block-content-inner">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Rol Adı</th>
+                                <th>Sil</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (string u in Model)
+                            {
+                                <tr>
+                                    <td>@u</td>
+                                    <td><a href="#" class="btn btn-danger  rounded roleDlt" data-ajax="@u">Sil</a></td>
+
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
